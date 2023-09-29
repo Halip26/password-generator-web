@@ -16,7 +16,7 @@ Features:
 
 Get started now and ensure the security of your online accounts with our Password Generator. Protect your sensitive information and enjoy peace of mind knowing that your passwords are strong and secure.
 
-Try it out today! [here](https://halip26.github.io)
+Try it out today! [here](https://halip26.github.io/password-generator)
 
 ## Screenshot
 
