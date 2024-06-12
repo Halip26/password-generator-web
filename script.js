@@ -5,7 +5,7 @@ const passwordInput = document.querySelector(".input-box input");
 const passIndicator = document.querySelector(".pass-indicator");
 const generateBtn = document.querySelector(".generate-btn");
 
-// Mendefinisikan karakter untuk passwordnya
+// Buat dictionary karakter2 untuk passwordnya
 const characters = {
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -20,11 +20,11 @@ const generatePassword = () => {
   let excludeDuplicate = false;
   let passLength = lengthSlider.value;
 
-  // looping untung ulangi setiap option
+  // Looping untung ulangi setiap option
   options.forEach((option) => {
     if (option.checked) {
       if (option.id !== "exc-duplicate" && option.id !== "spaces") {
-        // menambahkan characters staticPassword jika setiap option itu dipilih
+        // Menambahkan characters staticPassword jika setiap option itu dipilih
         staticPassword += characters[option.id];
       } else if (option.id == "spaces") {
         // Jika opsi "spaces" dipilih, maka spasi akan ditambahkan ke staticPassword.
@@ -35,24 +35,24 @@ const generatePassword = () => {
       }
     }
   });
-  // generate password secara acak dengan loopng for
+  // Generate password secara acak dengan loopng for
   for (let i = 0; i < passLength; i++) {
     let randomChar =
       staticPassword[Math.floor(Math.random() * staticPassword.length)];
     if (excludeDuplicate) {
-      // menambahkan karakter to randompass tanpa ada duplicate
+      // Menambahkan karakter to randompass tanpa ada duplicate
       if (!randomPassword.includes(randomChar) || randomChar == " ") {
         randomPassword += randomChar;
       } else {
         i--;
       }
     } else {
-      //add random karakter ke password
+      // Add random karakter ke password
       randomPassword += randomChar;
     }
   }
 
-  // atur nilai dari input password
+  // Atur nilai dari input password
   passwordInput.value = randomPassword;
 };
 
@@ -66,19 +66,19 @@ const updatePassIndicator = () => {
       : "strong";
 };
 
-// fungsi untuk update slider tanpa harus tekan generate btn
+// Fungsi untuk update slider tanpa harus tekan generate btn
 const updateSlider = () => {
-  // update panjang label
+  // Update panjang label
   document.querySelector(".pass-length span").innerText = lengthSlider.value;
 
-  // hubungkan ke fungsi generatePassword
+  // Hubungkan ke fungsi generatePassword
   generatePassword();
 
-  // update indicator password
+  // Update indicator password
   updatePassIndicator();
 };
 
-// inisisalisasi si slider & generate passwordnya
+// Inisisalisasi si slider & generate passwordnya
 updateSlider();
 
 const copyPassword = () => {
@@ -91,7 +91,7 @@ const copyPassword = () => {
   }, 1500);
 };
 
-// memanggil semua kejadian agar berfungsi
+// Memanggil semua kejadian agar berfungsi
 lengthSlider.addEventListener("input", updateSlider);
 generateBtn.addEventListener("click", generatePassword);
 copyIcon.addEventListener("click", copyPassword);
