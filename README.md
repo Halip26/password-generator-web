@@ -1,4 +1,4 @@
-# Password Generator
+# Password Generator Website
 
 This is a simple HTML/CSS/JavaScript password generator.
 
